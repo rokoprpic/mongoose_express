@@ -1,6 +1,7 @@
-const { default: mongoose } = require("mongoose")
+const { default: mongoose } = require("mongoose");
+const { Schema } = mongoose;
 
-const productSchema = new mongoose.Schema({
+const productSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -14,9 +15,11 @@ const productSchema = new mongoose.Schema({
         type: String,
         lowercase: true,
         enum: ["fruit", "vegetable", "dairy"]
+    },
+    shop: {
+        type: Schema.Types.ObjectId,
+        ref: "Shop"
     }
 });
 
-const Product = mongoose.model("Product", productSchema);
-
-module.exports = Product;
+module.exports = mongoose.model("Product", productSchema);

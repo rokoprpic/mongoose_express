@@ -4,25 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Shops</title>
 </head>
 <body>
     
     <h1><a href="/">Home</a></h1>
 
-    <h1><%=category%> list:</h1>
+    <h1>Shops list:</h1>
     <ul>
-        <%  for(let product of products){ %>
+        <%  for(let shop of shops){ %>
             <li> 
-                <a href="/products/<%= product._id %>"> <%=product.name %> </a>
+                <a href="/shops/<%= shop._id %>"> <%= shop.name %> </a>
             </li>
         <% } %>
     </ul>
-    
+
+    <a href="/shops/new"> Create new shop </a>
      <br>
-    <% if(home) { %>
-        <a href="/products">Show all products</a>
-    <% } %>
+     <br>
     
 </body>
 </html>

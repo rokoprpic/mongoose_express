@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop details</title>
+</head>
+<body>
+
+    <h1>Details for shop: <%= shop.name %></h1>
+    <ul>
+        <li>ID: <%= shop._id %></li>
+        <li>Location: <%= shop.location %></li>
+        <li>Email: <%= shop.email %></li>
+    </ul>
+
+    <br>
+    <h3> Products: </h3>
+    <ul>
+        <%  for(let p of shop.products){ %>
+            <li> 
+                <a href="/products/<%= p._id %>"><%= p.name %></a>
+            </li>
+        <% } %>
+    </ul>
+    <br>
+
+    <a href="/shops/<%= shop._id %>/products/new"> Create new product </a>
+
+    <br>
+    <br>
+    <a href="/shops">Show all shops</a>
+    <br>
+    <br>
+
+    <form action="/shops/<%= shop._id %>?_method=DELETE" method="POST">
+        <button>DELETE shop</button>
+    </form>
+
+</body>
+</html>
